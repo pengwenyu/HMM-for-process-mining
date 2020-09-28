@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pnml>
+	<net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+		<name>
+			<text>Process 1</text>
+		</name>
+		<page id="n0">
+			<name>
+				<text/>
+			</name>
+			<transition id="2">
+				<name>
+					<text>Activity A</text>
+				</name>
+				<toolspecific tool="libPlg" version="2.0.5" activity="Activity A"/>
+				<graphics>
+					<position x="50" y="50"/>
+					<dimension x="25" y="20"/>
+					<fill color="#FFFFFF"/>
+				</graphics>
+			</transition>
+			<transition id="4">
+				<name>
+					<text>Activity C</text>
+				</name>
+				<toolspecific tool="libPlg" version="2.0.5" activity="Activity C"/>
+				<graphics>
+					<position x="100" y="50"/>
+					<dimension x="25" y="20"/>
+					<fill color="#FFFFFF"/>
+				</graphics>
+			</transition>
+			<transition id="5">
+				<name>
+					<text>Activity D</text>
+				</name>
+				<toolspecific tool="libPlg" version="2.0.5" activity="Activity D"/>
+				<graphics>
+					<position x="150" y="50"/>
+					<dimension x="25" y="20"/>
+					<fill color="#FFFFFF"/>
+				</graphics>
+			</transition>
+			<transition id="3">
+				<name>
+					<text>Activity B</text>
+				</name>
+				<toolspecific tool="libPlg" version="2.0.5" activity="Activity B"/>
+				<graphics>
+					<position x="200" y="50"/>
+					<dimension x="25" y="20"/>
+					<fill color="#FFFFFF"/>
+				</graphics>
+			</transition>
+			<place id="0">
+				<name>
+					<text>0</text>
+				</name>
+				<graphics>
+					<position x="250" y="50"/>
+					<dimension x="12.5" y="12.5"/>
+				</graphics>
+				<initialMarking>
+					<text>1</text>
+				</initialMarking>
+			</place>
+			<place id="7">
+				<name>
+					<text>7</text>
+				</name>
+				<graphics>
+					<position x="300" y="50"/>
+					<dimension x="12.5" y="12.5"/>
+				</graphics>
+			</place>
+			<place id="1">
+				<name>
+					<text>1</text>
+				</name>
+				<graphics>
+					<position x="350" y="50"/>
+					<dimension x="12.5" y="12.5"/>
+				</graphics>
+			</place>
+			<place id="6">
+				<name>
+					<text>6</text>
+				</name>
+				<graphics>
+					<position x="400" y="50"/>
+					<dimension x="12.5" y="12.5"/>
+				</graphics>
+			</place>
+			<arc id="4-7" source="4" target="7">
+				<name>
+					<text>1</text>
+				</name>
+				<graphics/>
+				<arctype>
+					<text>normal</text>
+				</arctype>
+			</arc>
+			<arc id="7-5" source="7" target="5">
+				<name>
+					<text>1</text>
+				</name>
+				<graphics/>
+				<arctype>
+					<text>normal</text>
+				</arctype>
+			</arc>
+			<arc id="3-1" source="3" target="1">
+				<name>
+					<text>1</text>
+				</name>
+				<graphics/>
+				<arctype>
+					<text>normal</text>
+				</arctype>
+			</arc>
+			<arc id="5-6" source="5" target="6">
+				<name>
+					<text>1</text>
+				</name>
+				<graphics/>
+				<arctype>
+					<text>normal</text>
+				</arctype>
+			</arc>
+			<arc id="6-4" source="6" target="4">
+				<name>
+					<text>1</text>
+				</name>
+				<graphics/>
+				<arctype>
+					<text>normal</text>
+				</arctype>
+			</arc>
+			<arc id="0-2" source="0" target="2">
+				<name>
+					<text>1</text>
+				</name>
+				<graphics/>
+				<arctype>
+					<text>normal</text>
+				</arctype>
+			</arc>
+			<arc id="7-3" source="7" target="3">
+				<name>
+					<text>1</text>
+				</name>
+				<graphics/>
+				<arctype>
+					<text>normal</text>
+				</arctype>
+			</arc>
+			<arc id="2-6" source="2" target="6">
+				<name>
+					<text>1</text>
+				</name>
+				<graphics/>
+				<arctype>
+					<text>normal</text>
+				</arctype>
+			</arc>
+		</page>
+	</net>
+</pnml>

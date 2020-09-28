@@ -1,0 +1,20 @@
+
+
+for i in range(0,len(unique_traces)):
+     A=unique_traces[i]
+     a=unique_times[i]/len(A)
+     sum1 = 0
+     for j in range(0,len(A)-1):
+         Enable_Intersection=0
+         Enable_Cm=0
+         for k in range(0,len(source1)):
+             if A[j]== source1[k] and dependency1[k] in dependency2:
+                 Enable_Intersection = Enable_Intersection+1
+         for k in range(0,len(source2)):
+             if A[j]== source2[k]:
+                 Enable_Cm=Enable_Cm+1
+         if Enable_Cm!=0:
+             sum1=Enable_Intersection/Enable_Cm+sum1
+     #print(sum1)
+     sum=sum1*a+sum
+print(sum/trace_number)
