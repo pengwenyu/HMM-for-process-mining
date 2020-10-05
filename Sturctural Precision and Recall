@@ -1,20 +1,30 @@
+from Tools import *
+source1,target1= get_causal_net('./pnml/3 length loop.pnml')
+source2,target2= get_causal_net('./pnml/3 length loop.pnml')
 
+dependency1=[]
+dependency2=[]
+for i in range(0,len(source1)):
+    dependency= source1[i]+'-'+target1[i]
+    #print(dependency)
+    dependency1.append(dependency)
 
-for i in range(0,len(unique_traces)):
-     A=unique_traces[i]
-     a=unique_times[i]/len(A)
-     sum1 = 0
-     for j in range(0,len(A)-1):
-         Enable_Intersection=0
-         Enable_Cm=0
-         for k in range(0,len(source1)):
-             if A[j]== source1[k] and dependency1[k] in dependency2:
-                 Enable_Intersection = Enable_Intersection+1
-         for k in range(0,len(source2)):
-             if A[j]== source2[k]:
-                 Enable_Cm=Enable_Cm+1
-         if Enable_Cm!=0:
-             sum1=Enable_Intersection/Enable_Cm+sum1
-     #print(sum1)
-     sum=sum1*a+sum
-print(sum/trace_number)
+for i in range(0,len(source2)):
+    dependency= source2[i]+'-'+target2[i]
+    #print(dependency)
+    dependency2.append(dependency)
+
+Precision=0
+Recall=0
+for i in range(0,len(dependency1)):
+    for j in range(0,len(dependency2)):
+        if dependency1[i]==dependency2[j]:
+            Precision=Precision+1
+for i in range(0,len(dependency2)):
+    for j in range(0,len(dependency1)):
+        if dependency2[i]==dependency1[j]:
+            Recall=Recall+1
+Precision=Precision/len(dependency2)
+Recall=Recall/len(dependency1)
+print('Precision is',Precision)
+print('Recall is',Recall)

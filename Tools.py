@@ -243,3 +243,15 @@ def get_transition_name(transition_id,transition_name_list):
         if transition_id==transition_name_list[i]:
             transition_name=transition_name_list[i]
     return transition_name
+
+def get_topx_unique_trace(x,unique_times):
+    import heapq
+    import copy
+    m=copy.deepcopy(unique_times)
+    max_number = heapq.nlargest(x, m)
+    max_index = []
+    for t in max_number:
+        index = m.index(t)
+        max_index.append(index)
+        m[index] = 0
+    return max_index

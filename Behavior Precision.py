@@ -16,7 +16,7 @@ for i in unique_times:
 print(unique_traces)
 print(unique_times)
 for i in unique_traces:
-    print(len(i))
+    print('the length of unique trace is',len(i))
 sum=0
 Token_need1=[]
 Token_need2=[]
