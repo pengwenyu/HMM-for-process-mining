@@ -1,13 +1,13 @@
 from Tools import *
 
-unique_traces,unique_times=get_unique_trace('./3 length loop 2.0.xes')
+unique_traces,unique_times=get_unique_trace('./5 events sequence.xes')
 
-transition_name1,transition_id1=get_all_transition('./pnml/3 length loop.pnml')
-transition_name2,transition_id2=get_all_transition('./pnml/3 length loop.pnml')
-place1=get_all_place('./pnml/3 length loop.pnml')
-place2=get_all_place('./pnml/3 length loop.pnml')
-source1,target1=get_all_arcs('./pnml/3 length loop.pnml')
-source2,target2=get_all_arcs('./pnml/3 length loop.pnml')
+transition_name1,transition_id1=get_all_transition('./pnml/5 length sequence.pnml')
+transition_name2,transition_id2=get_all_transition('./pnml/5 length sequence.pnml')
+place1=get_all_place('./pnml/5 length sequence.pnml')
+place2=get_all_place('./pnml/5 length sequence.pnml')
+source1,target1=get_all_arcs('./pnml/5 length sequence.pnml')
+source2,target2=get_all_arcs('./pnml/5 length sequence.pnml')
 
 
 trace_number=0
@@ -18,7 +18,7 @@ print(unique_traces)
 print(unique_times)
 for i in unique_traces:
     print('the length of unique trace is',len(i))
-sum=0
+
 Token_need1=[]
 Token_need2=[]
 for i in range(0,len(transition_id1)):
@@ -30,17 +30,18 @@ for i in range(0,len(transition_id2)):
     Token_need2.append(len(place_id))
 print(Token_need2)
 
-
+sum=0
 print("Replay Start")
 print("**************************")
 for i in range(0,len(unique_traces)):
     A=unique_traces[i]
     a=unique_times[i]/len(A)
+    print("a is",a)
     sum1 = 0
-    place_have_token1=['8']
-    place_have_token2=['8']
+    place_have_token1=['18']
+    place_have_token2=['18']
     print(i+1," unique trace start")
-    for j in range(0,len(A)-1):
+    for j in range(0,len(A)):
         Enable_Intersection1 = 0
         Enable_Intersection2 = 0
         Enable_Cm=0
@@ -109,9 +110,10 @@ for i in range(0,len(unique_traces)):
             for k in range(0,len(generate_token)):
                 place_have_token2.append(generate_token[k])
         print("model 2 place have token", place_have_token2)
+        print("sum1 is",sum1)
         print("***")
     sum = sum1 * a + sum
-print('sum is',sum)
+print('sum is',sum/1000)
 
 
 
