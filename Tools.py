@@ -148,9 +148,7 @@ def get_all_arcs(pnml_file_path):
             source_list.append(source)
             target_list.append(target)
     #print(source_list,target_list)
-    return  source_list,target_list
-
-get_all_arcs('pnml/3 length loop.pnml')
+    return source_list,target_list
 
 
 def get_next_place(transition_id,source,target):
@@ -237,12 +235,19 @@ def get_unique_trace(xes_file_path):
     return unique_traces,unique_times
 
 
-def get_transition_name(transition_id,transition_name_list):
-    transition_name=transition_id
+def get_transition_name(transition_id,transition_name_list,transition_id_list):
+    transition_name='0'
     for i in range(0,len(transition_name_list)):
-        if transition_id==transition_name_list[i]:
+        if transition_id==transition_id_list[i]:
             transition_name=transition_name_list[i]
     return transition_name
+
+def get_transition_id(transition_name,transition_name_list,transition_id_list):
+    transition_id=0
+    for i in range(0,len(transition_name_list)):
+        if transition_name==transition_name_list[i]:
+            transition_id=transition_id_list[i]
+    return transition_id
 
 def get_topx_unique_trace(x,unique_times):
     import heapq
@@ -255,3 +260,60 @@ def get_topx_unique_trace(x,unique_times):
         max_index.append(index)
         m[index] = 0
     return max_index
+
+def get_unique_activity(xes_file_path):
+    log = []
+    fp = open(xes_file_path)
+    lines = fp.readlines()
+    idx = []
+    idx_event = []
+    unique_event=[]
+    unique_times=[]
+    for i in range(len(lines)):
+        if '<trace>' in lines[i]:
+            idx.append(i)
+        if '</trace>' in lines[i]:
+            idx.append(i)
+        if '<event>' in lines[i]:
+            idx_event.append(i)
+        if '</event>' in lines[i]:
+            idx_event.append(i)
+
+    index_in_event = 0
+    for i in range(0, len(idx), 2):
+        if i == len(idx) - 1:
+            break
+        start = idx[i]
+        end = idx[i + 1]
+        event_in_trace = 0
+        trace = []
+        for j in range(start, end):
+            if '<event>' in lines[j]:
+                event_in_trace = event_in_trace + 1
+        for k in range(0, event_in_trace):
+            event_start = idx_event[index_in_event]
+            event_end = idx_event[index_in_event + 1]
+            event_name = get_event_name(lines, event_start, event_end)
+            if event_name not in unique_event:
+                unique_event.append(event_name);
+                unique_times.append(1);
+            else:
+                for m in range(0,len(unique_event)):
+                    if event_name==unique_event[m]:
+                        unique_times[m]=unique_times[m]+1;
+            index_in_event = index_in_event + 2
+    print(unique_event)
+    print(unique_times)
+    return unique_event,unique_times
+
+#unique_event=[]
+#unique_times=[]
+#unique_event,unique_times=get_unique_activity('model 30.xes')
+
+#file=open('unique.txt','w')
+#for i in range(0,len(unique_event)):
+#    file.write(unique_event[i]);
+#    file.write('\n');
+#    file.write(str(unique_times[i]));
+#   file.write('\n');
+#file.close()

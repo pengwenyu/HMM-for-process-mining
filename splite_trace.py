@@ -1,6 +1,6 @@
 from Tools import *
 unique_trace,unique_times =get_unique_trace('model 30.xes')
-x=15
+x=60
 index=get_topx_unique_trace(x,unique_times)
 topx=[]
 for i in index:
@@ -65,8 +65,8 @@ for i in range(0,len(idx_unique),2):
 log1.append(tail)
 
 
-file=open('log2.xes','w')
-for i in range(len(log1)):
+file=open(str(x)+'.xes','w')
+for i in range(0,len(log1)):
     file.write(log1[i]);
 file.close()
 
