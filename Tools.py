@@ -306,6 +306,7 @@ def get_unique_activity(xes_file_path):
     print(unique_times)
     return unique_event,unique_times
 
+
 #unique_event=[]
 #unique_times=[]
 #unique_event,unique_times=get_unique_activity('model 30.xes')

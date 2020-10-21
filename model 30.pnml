@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="({'Activity A'}, {'Activity C', 'Activity D'})">
+        <name>
+          <text>({'Activity A'}, {'Activity C', 'Activity D'})</text>
+        </name>
+      </place>
+      <place id="({'Activity C','Activity E'}, {'Activity B'})">
+        <name>
+          <text>({'Activity C','Activity E'}, {'Activity B'})</text>
+        </name>
+      </place>
+      <place id="({'Activity I','Activity J'}, {'Activity H'})">
+        <name>
+          <text>({'Activity I','Activity J'}, {'Activity H'})</text>
+        </name>
+      </place>
+      <place id="({'Activity D','Activity H'}, {'Activity F'})">
+        <name>
+          <text>({'Activity D','Activity H'}, {'Activity F'})</text>
+        </name>
+      </place>
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="({'Activity F'}, {'Activity G', 'Activity E'})">
+        <name>
+          <text>({'Activity F'}, {'Activity G', 'Activity E'})</text>
+        </name>
+      </place>
+      <place id="({'Activity G'}, {'Activity I'})">
+        <name>
+          <text>({'Activity G'}, {'Activity I'})</text>
+        </name>
+      </place>
+      <place id="({'Activity G'}, {'Activity J'})">
+        <name>
+          <text>({'Activity G'}, {'Activity J'})</text>
+        </name>
+      </place>
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <transition id="Activity C">
+        <name>
+          <text>Activity C</text>
+        </name>
+      </transition>
+      <transition id="Activity G">
+        <name>
+          <text>Activity G</text>
+        </name>
+      </transition>
+      <transition id="Activity H">
+        <name>
+          <text>Activity H</text>
+        </name>
+      </transition>
+      <transition id="Activity I">
+        <name>
+          <text>Activity I</text>
+        </name>
+      </transition>
+      <transition id="Activity F">
+        <name>
+          <text>Activity F</text>
+        </name>
+      </transition>
+      <transition id="Activity B">
+        <name>
+          <text>Activity B</text>
+        </name>
+      </transition>
+      <transition id="Activity J">
+        <name>
+          <text>Activity J</text>
+        </name>
+      </transition>
+      <transition id="Activity D">
+        <name>
+          <text>Activity D</text>
+        </name>
+      </transition>
+      <transition id="Activity A">
+        <name>
+          <text>Activity A</text>
+        </name>
+      </transition>
+      <transition id="Activity E">
+        <name>
+          <text>Activity E</text>
+        </name>
+      </transition>
+      <arc id="-9223371862318306300" source="({'Activity A'}, {'Activity C', 'Activity D'})" target="Activity D"/>
+      <arc id="-9223371862318306296" source="Activity C" target="({'Activity C','Activity E'}, {'Activity B'})"/>
+      <arc id="-9223371862318306292" source="({'Activity C','Activity E'}, {'Activity B'})" target="Activity B"/>
+      <arc id="-9223371862318306288" source="Activity D" target="({'Activity D','Activity H'}, {'Activity F'})"/>
+      <arc id="-9223371862318306284" source="({'Activity D','Activity H'}, {'Activity F'})" target="Activity F"/>
+      <arc id="-9223371862318306280" source="Activity F" target="({'Activity F'}, {'Activity G', 'Activity E'})"/>
+      <arc id="-9223371862318306276" source="({'Activity F'}, {'Activity G', 'Activity E'})" target="Activity E"/>
+      <arc id="-9223371862318306272" source="({'Activity F'}, {'Activity G', 'Activity E'})" target="Activity G"/>
+      <arc id="-9223371862318306268" source="Activity E" target="({'Activity C','Activity E'}, {'Activity B'})"/>
+      <arc id="-9223371862318306264" source="Activity G" target="({'Activity G'}, {'Activity I'})"/>
+      <arc id="-9223371862318306260" source="Activity G" target="({'Activity G'}, {'Activity J'})"/>
+      <arc id="-9223371862318306256" source="({'Activity G'}, {'Activity I'})" target="Activity I"/>
+      <arc id="-9223371862318306252" source="({'Activity G'}, {'Activity J'})" target="Activity J"/>
+      <arc id="-9223371862318306248" source="Activity I" target="({'Activity I','Activity J'}, {'Activity H'})"/>
+      <arc id="-9223371862318306244" source="Activity J" target="({'Activity I','Activity J'}, {'Activity H'})"/>
+      <arc id="-9223371862318306240" source="({'Activity I','Activity J'}, {'Activity H'})" target="Activity H"/>
+      <arc id="-9223371862318306236" source="Activity H" target="({'Activity D','Activity H'}, {'Activity F'})"/>
+      <arc id="-9223371862318308368" source="start" target="Activity A"/>
+      <arc id="-9223371862318308364" source="Activity B" target="end"/>
+      <arc id="-9223371862318308360" source="Activity A" target="({'Activity A'}, {'Activity C', 'Activity D'})"/>
+      <arc id="-9223371862318308356" source="({'Activity A'}, {'Activity C', 'Activity D'})" target="Activity C"/>
+    </page>
+  </net>
+</pnml>

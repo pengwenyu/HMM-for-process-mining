@@ -2,6 +2,8 @@ from Tools import *
 
 unique_traces,unique_times=get_unique_trace('./5 events sequence.xes')
 
+pnml1=""
+pnml2=""
 transition_name1,transition_id1=get_all_transition('./pnml/5 length sequence.pnml')
 transition_name2,transition_id2=get_all_transition('./pnml/5 length sequence.pnml')
 place1=get_all_place('./pnml/5 length sequence.pnml')
