@@ -6,6 +6,8 @@ find_all = lambda data, s: [r for r in range(len(data)) if data[r] == s]
 
 def get_transition_id_and_name(lines, start, end):
     find_all = lambda data, s: [r for r in range(len(data)) if data[r] == s]
+    id="a"
+    name="b"
     for i in range(start, end):
         if "transition id" in lines[i]:
             r_list = find_all(lines[i], '"')
@@ -24,9 +26,6 @@ def get_place_id(lines, start, end):
     return id
 
 def get_causal_net(pnml_file_path):
-    net, initial_marking, final_marking = pnml_importer.apply(os.path.join("pnml","3 length loop.pnml"))
-    gviz = pn_visualizer.apply(net, initial_marking, final_marking)
-    #pn_visualizer.view(gviz)
     find_all = lambda data, s: [r for r in range(len(data)) if data[r] == s]
 
     fp=open(pnml_file_path)
@@ -107,7 +106,6 @@ def get_all_transition(pnml_file_path):
     #print(name_list)
     #print(id_list)
     return name_list,id_list
-get_all_transition('pnml/3 length loop.pnml')
 
 def get_all_place(pnml_file_path):
     idx=[]
@@ -131,7 +129,6 @@ def get_all_place(pnml_file_path):
     #print(id_list)
     return id_list
 
-get_all_place('pnml/3 length loop.pnml')
 
 def get_all_arcs(pnml_file_path):
     idx=[]
@@ -167,10 +164,10 @@ def get_last_place(transition_id,source,target):
 
 
 def get_next_transition(place_id,source,target):
-    transition_id=0
+    transition_id=[]
     for i in range(0,len(source)):
         if place_id==source[i]:
-            transition_id=target[i]
+            transition_id.append(target[i])
     return transition_id
 
 def get_event_name(lines,start,end):
@@ -309,12 +306,12 @@ def get_unique_activity(xes_file_path):
 
 #unique_event=[]
 #unique_times=[]
-#unique_event,unique_times=get_unique_activity('model 30.xes')
+#unique_event,unique_times=get_unique_activity('./model 30 event logs/20% noise.xes')
 
 #file=open('unique.txt','w')
 #for i in range(0,len(unique_event)):
-#    file.write(unique_event[i]);
-#    file.write('\n');
-#    file.write(str(unique_times[i]));
-#   file.write('\n');
+#    file.write(unique_event[i])
+#    file.write('\n')
+#    file.write(str(unique_times[i]))
+#    file.write('\n')
 #file.close()

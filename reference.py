@@ -1,11 +1,11 @@
 from Tools import *
 import heapq
 import numpy as np
-a1,a2 =get_unique_trace('model 30.xes')
+a1,a2 =get_unique_trace('model 30 event logs/20% noise.xes')
 
 import heapq
 
-index=get_topx_unique_trace(10,a2)
+index=get_topx_unique_trace(30,a2)
 print(index)
 
 file = open('reference.txt','w');

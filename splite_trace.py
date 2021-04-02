@@ -1,6 +1,10 @@
 from Tools import *
-unique_trace,unique_times =get_unique_trace('model 30.xes')
-x=60
+
+xes_file='model 30 event logs/5% noise.xes'
+unique_trace,unique_times =get_unique_trace(xes_file)
+
+x=2
+
 index=get_topx_unique_trace(x,unique_times)
 topx=[]
 for i in index:
@@ -10,7 +14,7 @@ for i in index:
 
 log = []
 
-fp = open('model 30.xes')
+fp = open(xes_file)
 lines = fp.readlines()
 idx = []
 idx_event = []
